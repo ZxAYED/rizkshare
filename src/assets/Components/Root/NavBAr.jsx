@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 
 const NavBAr = () => {
     const navlinks = <>
-        <div className="flex gap-4">
+        <div className="flex gap-4 ">
             <NavLink to='/' className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "bg-[#99627A] btn border-none text-white hover:text-[#99627A] px-0" : ''}
-            ><button className="btn btn-ghost  "> Home</button></NavLink>
+            ><button className="btn btn-ghost font-bold   "> Home</button></NavLink>
             <NavLink to='/RizkShare/AvialableFoods' className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "bg-[#99627A] btn border-none text-white hover:text-[#99627A] px-0  " : ''}
             ><button className="btn btn-ghost "> Available Foods</button></NavLink>
@@ -20,7 +20,7 @@ const NavBAr = () => {
         </div>
     </>
     return (
-        <div className=" bg-[#E7CBCB]  py-2 mb-5 ">
+        <div className=" bg-[#E7CBCB]  py-2  ">
             <div className="navbar max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">

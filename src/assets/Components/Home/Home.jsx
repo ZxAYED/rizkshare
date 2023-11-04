@@ -1,9 +1,13 @@
+import AvailableFoods from "./AvailableFoods";
+import Banner from "./Banner";
 
 
 const Home = () => {
     return (
         <div>
-            hi there
+            <Banner></Banner>
+            <AvailableFoods></AvailableFoods>
+         
         </div>
     );
 };
