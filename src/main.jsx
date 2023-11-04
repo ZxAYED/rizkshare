@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Root from './assets/Components/Root/Root.jsx';
 import Home from './assets/Components/Home/Home.jsx';
+import AvailableFoods from './assets/Components/Home/AvailableFoods.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>
+    },
+      {
+        path:'RizkShare/AvialableFoods',
+        element:<AvailableFoods/>
     },
 
 
