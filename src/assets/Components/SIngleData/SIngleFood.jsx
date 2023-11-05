@@ -22,7 +22,7 @@ const SIngleFood = () => {
         console.log(requestedFood);
 
 
-        axios.post('http://localhost:5000/RizkShare/RequestedFood', requestedFood
+        axios.post('http://localhost:5000/RizkShare/RequestedFood', requestedFood,{withCredentials:true}
           )
           .then(function (response) {
             console.log(response);

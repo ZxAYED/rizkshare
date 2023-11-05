@@ -5,13 +5,19 @@ import Footer from './Footer';
 
 
 const Root = () => {
-    return (
-        <div>
-           <Headroom><NavBAr></NavBAr></Headroom> 
-            <Outlet></Outlet>
-            <Footer></Footer>
-        </div>
-    );
+
+        return (
+
+         
+                <div>
+                    <Headroom><NavBAr></NavBAr></Headroom>
+                    <Outlet></Outlet>
+                    <Footer></Footer>
+                </div>
+
+            
+        );
+    
 };
 
 export default Root;

@@ -38,13 +38,13 @@ const Banner = () => {
                    className="w-full h-full object-fit rounded-lg"
                  />
                  <div className='absolute top-0  justify-center items-center  px-[20%] flex flex-col  text-center h-full bg-gradient-to-r mx-auto from-[#151515] to-rgba(21, 21, 21, 0.00)   p-6'>
-                    <h1 className='text-4xl font-bold text-white py-2'>
+                    <h1 className='md:text-4xl text-2xl font-bold text-white py-2'>
                    <span className='text-[#E7CBCB] text-5xl'>RizkShare </span> <br /> <br /> Nourishing Hearts, Uniting Communities
                     </h1>
-                    <p className='text-white pb-5 pt-5 text-lg'>RizkShare is where benevolence meets community. We bring people together to share surplus food, nourishing both hearts and the environment. Join us in making a positive impact, one meal at a time.</p>
+                    <p className='text-white pb-5 pt-5 md:text-lg'>RizkShare is where benevolence meets community. We bring people together to share surplus food, nourishing both hearts and the environment. Join us in making a positive impact, one meal at a time.</p>
                   
                     <div className="">
-                    <button className="btn bg-[#99627A] border-none w-fit text-white hover:text-[#99627A]">Help us grow</button>
+                    <button className="btn hidden lg:flex bg-[#99627A] border-none w-fit text-white hover:text-[#99627A]">Help us grow</button>
                 </div>
                  </div>
                </div>
