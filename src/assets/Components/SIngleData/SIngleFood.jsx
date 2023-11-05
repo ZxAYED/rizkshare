@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
@@ -9,13 +10,15 @@ const SIngleFood = () => {
  
     const data = useLoaderData()
     const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id } = data
+    const date=moment().format('llll');
     const  handlePost =e=>{
         e.preventDefault()
         const id=_id
         const form =e.target;
         const info =form.donate.value;
         const notes=form.notes.value;
-        const requestedFood = { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, id,info,notes     }
+       
+        const requestedFood = { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, id,info,notes ,date    }
         console.log(requestedFood);
 
 
@@ -111,8 +114,8 @@ const SIngleFood = () => {
                                                                 <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder={_id} disabled />
                                                             </div>
                                                             <div>
-                                                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Expired Date in days:</label>
-                                                                <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder={expiredDateInDays} disabled />
+                                                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Expired Date in days & Current date:</label>
+                                                                <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder={`${expiredDateInDays} days & ${date}`}   disabled />
                                                             </div>
                                                             <div>
                                                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
