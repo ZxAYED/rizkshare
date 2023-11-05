@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       {
         path:'RizkShare/:id',
         element:<SIngleFood/>,
-        loader:({params})=> fetch(`http://localhost:5000/RizkShare/${params.id}`) 
+        loader:({params})=> fetch(`http://localhost:5000/RizkShare/SingleFood/${params.id}`) 
     },
 
 

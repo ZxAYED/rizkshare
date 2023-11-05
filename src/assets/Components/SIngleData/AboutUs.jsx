@@ -41,7 +41,7 @@ const AboutUS = () => {
                             </p>
 
                             <div className="">
-                                <button className="btn hidden mt-10 lg:flex bg-[#99627A] border-none w-fit text-white hover:text-[#99627A]">Contact</button>
+                                <button className="btn hidden mt-10 lg:flex bg-[#99627A] border-none w-fit text-white hover:text-[#99627A]">Contact now !</button>
                             </div>
                         </div>
                     </div>

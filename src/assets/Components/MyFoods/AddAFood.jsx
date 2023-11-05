@@ -6,16 +6,10 @@ import axios from 'axios';
 import Banner from '../Home/Banner';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../Authentication/AuthProvider';
+import { motion } from 'framer-motion';
 
 const AddAFood = () => {
-    <script>
-  AOS.init();
-</script>
-    useEffect(()=>{
-        <script>
-        AOS.init();
-      </script>
-    },[])
+    
     const {foodDonatorEmail,foodDonatorImage,foodDonatorName} =useContext(AuthContext)
     const handleUpdate =e=>{
         e.preventDefault()
@@ -29,7 +23,7 @@ const AddAFood = () => {
        
 const foods ={additionalNotes,expiredDateInDays,foodImage,foodName,foodQuantity,pickupLocation,foodDonatorEmail,foodDonatorImage,foodDonatorName}
         console.log(additionalNotes,foodDonatorEmail,foodDonatorImage,foodDonatorName,expiredDateInDays,foodImage,foodName,foodQuantity,pickupLocation)
-        axios.post('http://localhost:5000/RizkShare/availableFoods',foods)
+        axios.post('http://localhost:5000/RizkShare/availableFoods',foods,{withCredentials:true})
         .then(res=>{
             if(res){
             toast.success('Item Added SuccessFully!', {
@@ -59,13 +53,19 @@ const foods ={additionalNotes,expiredDateInDays,foodImage,foodName,foodQuantity,
     }
    
     return (
+ 
         <div  >
             <Banner></Banner>
+            <motion.div
 
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+
+>
         <div className='max-w-7xl mx-auto my-16 bg-[#99627A] rounded-2xl'>
             
-<form className='p-16 ' onSubmit={handleUpdate} data-aos="fade-up"
-     data-aos-anchor-placement="center-center"> 
+<form className='p-16 ' onSubmit={handleUpdate} > 
     <h1 className='text-center text-3xl font-bold text-white mb-16'>Want to add A new product? </h1>
   <div className="relative z-0 w-full mb-6 group">
       <input type="text" name="name"  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
@@ -111,8 +111,9 @@ const foods ={additionalNotes,expiredDateInDays,foodImage,foodName,foodQuantity,
                   />
 </form>
 
+        </div> </motion.div>
         </div>
-        </div>
+       
     );
 };
 
