@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 import NavBAr from "./NavBAr";
+import Headroom from "react-headroom";
 
 
 const Root = () => {
     return (
         <div>
-            <NavBAr></NavBAr>
+           <Headroom><NavBAr></NavBAr></Headroom> 
             <Outlet></Outlet>
         </div>
     );

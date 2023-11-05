@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBAr = () => {
     const navlinks = <>
-        <div className="flex gap-4 ">
+        <div className="flex gap-4  ">
             <NavLink to='/' className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "bg-[#99627A] btn border-none text-white hover:text-[#99627A] px-0" : ''}
             ><button className="btn btn-ghost font-bold   "> Home</button></NavLink>
@@ -14,6 +14,9 @@ const NavBAr = () => {
             <NavLink to='/RizkShare/MyFoods' className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "bg-[#99627A] btn border-none text-white hover:text-[#99627A] px-0  " : ''}
             ><button className="btn btn-ghost "> My Foods</button></NavLink>
+            <NavLink to='/RizkShare/AddFood' className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "bg-[#99627A] btn border-none text-white hover:text-[#99627A] px-0  " : ''}
+            ><button className="btn btn-ghost "> Add a Food</button></NavLink>
 
 
 
@@ -39,7 +42,7 @@ const NavBAr = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn bg-[#99627A] border-none text-white hover:text-[#99627A]">Log in</a>
+                    <button className="btn bg-[#99627A] border-none text-white hover:text-[#99627A]">Log in</button>
                 </div>
             </div>
         </div>
