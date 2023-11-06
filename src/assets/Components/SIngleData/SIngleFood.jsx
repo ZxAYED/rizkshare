@@ -2,10 +2,12 @@ import axios from "axios";
 import moment from "moment";
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import 'sweetalert2/src/sweetalert2.scss'
 import { AuthContext } from "../Authentication/AuthProvider";
+
 
 
 const SIngleFood = () => {
@@ -29,22 +31,29 @@ const SIngleFood = () => {
         axios.post(`http://localhost:5000/RizkShare/RequestedFood/`, requestedFood,{withCredentials:true}
           )
           .then(function (response) {
-            console.log(response);
-            Swal.fire({
-                title: 'success!',
-                text: 'Your request has been updated',
-                icon: 'success',
-                confirmButtonText: 'Cool'
-              })
+            toast.success('Data has been added', {
+                position: "top-right",
+                autoClose: 2100,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                })
           })
           .catch(function (error) {
             console.log(error);
-            Swal.fire({
-                title: 'error!',
-                text: error.message,
-                icon: 'error',
-                confirmButtonText: 'Ops'
-              })
+            toast.error(error.message, {
+                position: "top-right",
+                autoClose: 2100,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                })
           });
 
 
@@ -150,7 +159,16 @@ const SIngleFood = () => {
                                     </div>
                                 </div>
 
-
+                                <ToastContainer
+position="top-right"
+autoClose={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+theme="light"
+/>
 
 
 
