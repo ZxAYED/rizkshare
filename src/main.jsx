@@ -21,6 +21,7 @@ import PrivateRoute from './assets/Components/Authentication/PrivateRoute.jsx';
 import AboutUS from './assets/Components/SIngleData/AboutUs.jsx';
 import ManageFoods from './assets/Components/MyFoods/ManageFoods.jsx';
 import News from './assets/Components/SIngleData/News.jsx';
+import ManageReq from './assets/Components/MyFoods/ManageReq.jsx';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,11 @@ const router = createBrowserRouter([
         path:'RizkShare/:id',
         element:<SIngleFood/>,
         loader:({params})=> fetch(`http://localhost:5000/RizkShare/SingleFood/${params.id}`) 
+    },
+      {
+        path:'RizkShare/ManageReq/:id',
+        element:<ManageReq/>,
+        loader:({params})=> fetch(`http://localhost:5000/RizkShare/ManageFoods/${params.id}`) 
     },
 
 

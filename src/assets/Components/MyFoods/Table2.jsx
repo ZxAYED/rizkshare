@@ -104,7 +104,7 @@ const Table2 = ({item}) => {
 
 
         <td className="px-6 py-4">
-        <Link to={`/RizkShare/${_id}`}> <button className="text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858] ">Manage</button>
+        <Link to={`/RizkShare/ManageReq/${_id}`}> <button className="text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858] ">Manage</button>
         </Link>
         </td>
         <td className="px-6 py-4">
@@ -119,7 +119,7 @@ const Table2 = ({item}) => {
             <div className="relative bg-[#99627A] rounded-lg shadow ">
 
                 <div className="px-6 py-6 lg:px-8">
-                    <h3 className="mb-4 text-xl text-white  text-center font-medium">Want to order the food? </h3>
+                    <h3 className="mb-4 text-xl text-white  text-center font-medium">Want to Update the food? </h3>
                     <form onSubmit={()=>handleUpdate(_id)}>
                         <div className="grid grid-cols-2 gap-5 " >
                             <div>
@@ -154,6 +154,10 @@ const Table2 = ({item}) => {
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Donate:</label>
                                 <input type="number" name="donate" placeholder="Please Donate some money" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  />
                             </div>
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Short description:</label>
+                                <input type="text" name="description" placeholder="Please Donate some money" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  />
+                            </div>
                        
                         </div>
                         <div className="flex flex-row-reverse gap-10 justify-center  items-center ">
@@ -176,7 +180,7 @@ const Table2 = ({item}) => {
         <td className="px-6 py-4">
     
    
-<button className="text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858] " onClick={()=>document.getElementById('my_modal_5').showModal()}>Cancel request</button>
+<button className="text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858] " onClick={()=>document.getElementById('my_modal_5').showModal()}>Detele </button>
 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">
     <h3 className="font-bold text-lg">Are you Sure?</h3>

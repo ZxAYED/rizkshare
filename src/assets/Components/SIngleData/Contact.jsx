@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"; // Make sure to import motion from framer-motion
+ // Make sure to import motion from framer-motion
 
 const Contact = () => {
     return (
