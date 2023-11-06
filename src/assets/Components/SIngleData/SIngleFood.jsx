@@ -23,8 +23,9 @@ const SIngleFood = () => {
         const form =e.target;
         const info =form.donate.value;
         const notes=form.notes.value;
-       
-        const requestedFood = { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, id,info,notes ,date,email    }
+        const donation=form.notes.value;
+       const status ='available'
+        const requestedFood = { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, id,info,notes ,date,email  ,donation ,status }
       
 
 

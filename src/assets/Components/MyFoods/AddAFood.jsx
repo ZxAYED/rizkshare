@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 const AddAFood = () => {
     
     const {foodDonatorEmail,foodDonatorImage,foodDonatorName} =useContext(AuthContext)
+   
     const handleUpdate =e=>{
         e.preventDefault()
         const form = e.target
@@ -20,9 +21,10 @@ const AddAFood = () => {
         const pickupLocation  =form.location.value
         const expiredDateInDays  =form.date.value
         const additionalNotes  =form.description.value
+        const status ='available'
        
-const foods ={additionalNotes,expiredDateInDays,foodImage,foodName,foodQuantity,pickupLocation,foodDonatorEmail,foodDonatorImage,foodDonatorName}
-        console.log(additionalNotes,foodDonatorEmail,foodDonatorImage,foodDonatorName,expiredDateInDays,foodImage,foodName,foodQuantity,pickupLocation)
+const foods ={additionalNotes,foodDonatorEmail,foodDonatorImage,foodDonatorName,expiredDateInDays,foodImage,foodName,foodQuantity,pickupLocation,status}
+        // console.log(additionalNotes,foodDonatorEmail,foodDonatorImage,foodDonatorName,expiredDateInDays,foodImage,foodName,foodQuantity,pickupLocation,status)
         axios.post('http://localhost:5000/RizkShare/availableFoods',foods,{withCredentials:true})
         .then(res=>{
             if(res){

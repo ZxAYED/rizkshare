@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import img from '../../images/about.jpg'
 
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 const AboutUS = () => {
 
 
@@ -41,7 +42,7 @@ const AboutUS = () => {
                             </p>
 
                             <div className="">
-                                <button className="btn hidden mt-10 lg:flex bg-[#99627A] border-none w-fit text-white hover:text-[#99627A]">Contact now !</button>
+                               <Link to='/RizkShare/News'> <button className="btn hidden mt-10 lg:flex bg-[#99627A] border-none w-fit text-white hover:text-[#99627A]">Contact now !</button></Link>
                             </div>
                         </div>
                     </div>

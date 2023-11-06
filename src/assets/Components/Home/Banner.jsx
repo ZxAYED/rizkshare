@@ -25,7 +25,7 @@ const Banner = () => {
       }, []);
          return (
            <div>
-           <div className="relative w-full h-[85vh]  mb-10 ">
+           <div className="relative w-full h-[85vh] mb-10 ">
              {images.map((image, index) => (
                <div
                  key={index}

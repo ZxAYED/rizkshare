@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { SkeletonTheme } from 'react-loading-skeleton';
 import './index.css'
 
 import {
@@ -19,6 +19,8 @@ import Register from './assets/Components/Authentication/Register.jsx';
 import AuthProvider, { AuthContext } from './assets/Components/Authentication/AuthProvider.jsx';
 import PrivateRoute from './assets/Components/Authentication/PrivateRoute.jsx';
 import AboutUS from './assets/Components/SIngleData/AboutUs.jsx';
+import ManageFoods from './assets/Components/MyFoods/ManageFoods.jsx';
+import News from './assets/Components/SIngleData/News.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
         element:<PrivateRoute><MyFoods/></PrivateRoute>
     },
       {
+        path:'/RizkShare/ManageFoods',
+        element:<PrivateRoute><ManageFoods/></PrivateRoute>
+    },
+      {
         path:'RizkShare/Login',
         element:<Login/>
     },
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:'RizkShare/AboutUs',
         element:<AboutUS/>
+    },
+      {
+        path:'RizkShare/News',
+        element:<News/>
     },
       {
         path:'RizkShare/AddFood',
@@ -73,10 +83,12 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
  
   <React.StrictMode>
+       
  <SkeletonTheme baseColor="#202020" highlightColor="#444">
     <AuthProvider>
      <RouterProvider router={router} />
      </AuthProvider>
      </SkeletonTheme>
+   
   </React.StrictMode>,
 )
