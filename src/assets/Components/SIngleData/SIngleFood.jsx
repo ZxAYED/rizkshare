@@ -1,28 +1,32 @@
 import axios from "axios";
 import moment from "moment";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 import 'sweetalert2/src/sweetalert2.scss'
+import { AuthContext } from "../Authentication/AuthProvider";
 
 
 const SIngleFood = () => {
- 
+ const {user}=useContext(AuthContext)
+
     const data = useLoaderData()
     const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id } = data
     const date=moment().format('llll');
     const  handlePost =e=>{
         e.preventDefault()
+        const email =user.email
         const id=_id
         const form =e.target;
         const info =form.donate.value;
         const notes=form.notes.value;
        
-        const requestedFood = { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, id,info,notes ,date    }
-        console.log(requestedFood);
+        const requestedFood = { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, id,info,notes ,date,email    }
+      
 
 
-        axios.post('http://localhost:5000/RizkShare/RequestedFood', requestedFood,{withCredentials:true}
+        axios.post(`http://localhost:5000/RizkShare/RequestedFood/`, requestedFood,{withCredentials:true}
           )
           .then(function (response) {
             console.log(response);
@@ -127,7 +131,7 @@ const SIngleFood = () => {
                                                             </div>
                                                             <div>
                                                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Donate:</label>
-                                                                <input type="number" name="donate" placeholder="Please Donate some money" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                                                <input type="number" name="donate" placeholder="Please Donate some money" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  />
                                                             </div>
                                                        
                                                         </div>
