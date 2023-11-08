@@ -8,3 +8,6 @@ Interactive UI with React Toast and AOS: RizkShare offers an engaging user exper
 Real-Time Server-Client Interaction: The website leverages real-time server-client interactions, creating a dynamic and responsive environment. Users can expect instant updates and notifications related to food availability, donations, and order status.
 
 Gorgeous and Responsive Design: RizkShare stands out with its stunning design. The website's aesthetics not only make it visually appealing but also ensure it's responsive, providing an excellent user experience across various devices.
+
+
+MY WEBSITE LINK IS-****  --https://zayed-rizkshare-server-le3m9cc2d-zayeds-projects.vercel.app/
