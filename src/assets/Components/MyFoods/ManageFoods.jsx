@@ -12,7 +12,7 @@ const ManageFoods = () => {
     const { user } = useContext(AuthContext)
     const [data, setData] = useState(null)
     useEffect(() => {
-        axios.get(`http://localhost:5000/RizkShare/ManageFoods/?email=${user?.email}`, { withCredentials: true })
+        axios.get(`https://zayed-rizkshare-server.vercel.app/RizkShare/ManageFoods/?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                
 
@@ -26,7 +26,7 @@ const ManageFoods = () => {
   
     const handleDelete=id=>{
 
-        fetch(`http://localhost:5000/RizkShare/availableFoods/${id}`,{
+        fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/availableFoods/${id}`,{
          method:'DELETE'
         })
         .then(res=>res.json())
@@ -107,7 +107,7 @@ const ManageFoods = () => {
                     const newData  ={expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,    donation ,status}
                    
                     console.log(newData);
-                      fetch(`http://localhost:5000/RizkShare/availableFoods/${_id}`,{
+                      fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/availableFoods/${_id}`,{
                        method:'PATCH',
                        headers:{
                           'content-type':'application/json'

@@ -30,7 +30,7 @@ const ManageReq = () => {
     const handleUpdate = id => {
 
 
-        fetch(`http://localhost:5000/RizkShare/availableFoods/${id}`, {
+        fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/availableFoods/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

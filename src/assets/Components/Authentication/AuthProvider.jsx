@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
      
 
         axios
-          .post("http://localhost:5000/rizkShare/jwt", loggedUser, {
+          .post("https://zayed-rizkshare-server.vercel.app/rizkShare/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => console.log("token response", res.data));
