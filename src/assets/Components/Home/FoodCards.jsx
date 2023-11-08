@@ -1,15 +1,23 @@
-import Skeleton from "react-loading-skeleton";
+
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
+import { useEffect } from "react";
 
 
 
 const FoodCards = ({ items }) => {
-    const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id } = items
+    const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id, } = items
 
+    useEffect(()=>{
+        <script>
+        AOS.init();
+      </script>
+    },[])
     return (
 
-        <div className="">
+        <div data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000" className="">
             <motion.div
                   className="box"
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -20,6 +28,7 @@ const FoodCards = ({ items }) => {
                     ease: [0, 0.71, 0.2, 1.01]
                   }}
             >
+                
                 <div className="max-w-2xl  overflow-hidden rounded-xl shadow-2xl ">
                     <img className="object-cover  w-full h-64" src={foodImage} alt="Article" />
 

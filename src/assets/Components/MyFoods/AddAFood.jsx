@@ -17,9 +17,9 @@ const AddAFood = () => {
         const form = e.target
         const foodName =form.name.value;
         const foodImage=form.image.value;
-        const foodQuantity =form.quantity.value;
+        const foodQuantity =parseInt(form.quantity.value)
         const pickupLocation  =form.location.value
-        const expiredDateInDays  =form.date.value
+        const expiredDateInDays  =parseInt(form.date.value)
         const additionalNotes  =form.description.value
         const status ='available'
        

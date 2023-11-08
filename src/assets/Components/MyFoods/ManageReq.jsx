@@ -13,52 +13,58 @@ import { useState } from "react";
 
 const ManageReq = () => {
     const datas = useLoaderData()
-  const [data,setData]=useState(datas)
+    const [data, setData] = useState(datas)
+    const [isDelivered, setIsDelivered] = useState(false);
 
 
-    
     const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id } = data
 
-    
-   
+    const handleToggle = () => {
+        setIsDelivered(!isDelivered);
+    };
 
 
-    const handleUpdate=id=>{
-    
-       
-          fetch(`http://localhost:5000/RizkShare/RequestedFood/${id}`,{
-           method:'PATCH',
-           headers:{
-              'content-type':'application/json'
-           },
-         body:JSON.stringify({status: 'delivered'})
-           
-          })
-          .then(res=>res.json())
-          .then(data=>{
-              console.log(data);
-           if(data.modifiedCount >0){
-           toast.success('Data has been updated', {
-               position: "top-right",
-               autoClose: 2100,
-               hideProgressBar: false,
-               closeOnClick: true,
-               pauseOnHover: true,
-               draggable: true,
-               progress: undefined,
-               theme: "light",
-               })}
-  
-               const remaining =data.filter(item =>item._id!==id)
-               const updated =data.find(item =>item._id===id);
-               updated.status='confirm'
-               const newData =[updated ,...remaining]
-               setData(newData)
-          })
-   
-          
-       }
-   
+
+
+
+    const handleUpdate = id => {
+
+
+        fetch(`http://localhost:5000/RizkShare/availableFoods/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'delivered' })
+
+        })
+            .then(res => res.json())
+            .then(datas => {
+
+                if (datas.modifiedCount > 0) {
+                    toast.success('Data has been updated', {
+                        position: "top-right",
+                        autoClose: 2100,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    })
+                    console.log(datas);
+                }
+
+                const remaining = data.filter(item => item._id !== id)
+                const updated = data.find(item => item._id === id);
+                updated.status = 'confirm'
+                const newData = [updated, ...remaining]
+                setData(newData)
+            })
+
+
+    }
+
 
 
 
@@ -91,21 +97,29 @@ const ManageReq = () => {
                                 <p className="  ">User Email: {foodDonatorEmail}</p>
 
                             </div>
-                            <button className=" bg-[#99627A] p-3 block mx-auto border-none  rounded-xl text-white hover:bg-[#813858] " onClick={()=>handleUpdate(_id)}>Deliver The Food? </button>
+                            <button
+                                className={`bg-[#99627A] p-3 block mx-auto border-none rounded-xl text-white hover:bg-[#813858] ${isDelivered ? "bg-gray-400 cursor-not-allowed" : ""
+                                    }`}
+                                onClick={handleToggle}
+                                disabled={isDelivered}
+                            >
+                                {isDelivered ? "Delivered" : "Deliver The Food?"}
+                            </button>
 
-                          
+
+
                         </div>
-                        
-        <ToastContainer
-position="top-right"
-autoClose={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-theme="light"
-/>
+
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            theme="light"
+                        />
                     </div>
                 </div>
             </div>

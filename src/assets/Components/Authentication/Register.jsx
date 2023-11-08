@@ -40,7 +40,7 @@ const Register = () => {
             .catch(function (err) {
                  setError(err);
                 if(err){ 
-                  toast.error(error.message, {
+                  toast.err(error.message, {
                     position: "top-right",
                     autoClose: 3000,
                     hideProgressBar: false,

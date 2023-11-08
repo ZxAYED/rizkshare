@@ -14,8 +14,9 @@ const SIngleFood = () => {
  const {user}=useContext(AuthContext)
 
     const data = useLoaderData()
-    const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id } = data
+    const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id ,status} = data
     const date=moment().format('llll');
+  
     const  handlePost =e=>{
         e.preventDefault()
         const email =user.email
