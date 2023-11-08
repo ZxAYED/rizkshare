@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const News = () => {
     
- 
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
     const [faqs, setFaqs] = useState([
         {
           question: "How can I donate food or money through RizkShare?",
@@ -108,7 +115,8 @@ const News = () => {
 
             <div className="p-4 py-6 rounded-lg  bg-[#99627A] md:p-8">
           
-                <form>
+                <form  data-aos="fade-up"
+     data-aos-duration="1500">
                 <h1 className="text-3xl py-5 text-center text-white font-bold">Feel free to knock us !</h1>
                     <div className="-mx-2 md:items-center md:flex">
                         <div className="flex-1 px-2">

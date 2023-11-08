@@ -1,2 +1,0 @@
-// rizkShare
-// Tiberium22

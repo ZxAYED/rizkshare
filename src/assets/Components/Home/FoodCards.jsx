@@ -2,23 +2,26 @@
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { useEffect } from "react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 const FoodCards = ({ items }) => {
     const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id, } = items
 
+
+  
     useEffect(()=>{
-        <script>
+     
         AOS.init();
-      </script>
+    
     },[])
     return (
 
         <div data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
-        data-aos-duration="2000" className="">
-            <motion.div
+        data-aos-duration="600" className="">
+            {/* <motion.div
                   className="box"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -27,9 +30,9 @@ const FoodCards = ({ items }) => {
                     delay: 0.5,
                     ease: [0, 0.71, 0.2, 1.01]
                   }}
-            >
+            > */}
                 
-                <div className="max-w-2xl  overflow-hidden rounded-xl shadow-2xl ">
+                <div className="max-w-2xl h-[650px] relative  overflow-hidden rounded-xl shadow-2xl ">
                     <img className="object-cover  w-full h-64" src={foodImage} alt="Article" />
 
                     <div className="p-6 ">
@@ -54,14 +57,15 @@ const FoodCards = ({ items }) => {
                                 <p className="mt-2 ">Total Quantity: <span className="text-yellow-600">{foodQuantity}  </span> </p>
                                 <p className="mt-2 ">Expired Date: <span className="text-yellow-600">{expiredDateInDays}  days</span> </p>
                             </div>
-                            <div className="pt-8">
-                                <Link to={`/RizkShare/${_id}`}>
-                                    <button className="btn bg-[#99627A] border-none text-white hover:text-[#99627A]">view detials</button></Link>
-                            </div>
-                        </div>
+                          
+                              <div className="absolute bottom-8 left-[30%] right-[30%]">
+                           
+                            <Link to={`/RizkShare/${_id}`}>
+                                    <button className="btn   bg-[#99627A]  w-fit  border-none text-white hover:text-[#99627A]">view detials</button></Link>
+                        </div></div>
                     </div>
                 </div>
-                </motion.div >
+                {/* </motion.div > */}
         </div>
     );
 };

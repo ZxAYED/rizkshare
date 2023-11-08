@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../images/login.jpg';
 import { useContext, useState } from 'react';
 import { AuthContext } from './AuthProvider';
@@ -10,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    const { user, SignIn,
-        googleSignIn } = useContext(AuthContext)
+    const { user, SignIn, googleSignIn } = useContext(AuthContext)
+    const location =useLocation()
     const [error, setError] = useState(null)
     const navigate = useNavigate()
     const handleLogin = (e) => {
@@ -20,7 +20,7 @@ const Login = () => {
         const form = e.target;
         const password = form.password.value
         const email = form.email.value
- 
+          
         console.log(password, email);
         SignIn(email, password)
             .then(response => {

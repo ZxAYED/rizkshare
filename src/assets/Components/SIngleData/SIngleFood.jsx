@@ -16,7 +16,16 @@ const SIngleFood = () => {
     const data = useLoaderData()
     const { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, _id ,status} = data
     const date=moment().format('llll');
-  
+    if(!user){   toast.error(' Please Log in to try for a request', {
+        position: "top-right",
+        autoClose: 2100,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })}
     const  handlePost =e=>{
         e.preventDefault()
         const email =user.email
@@ -27,8 +36,8 @@ const SIngleFood = () => {
         const donation=form.notes.value;
        const status ='available'
         const requestedFood = { additionalNotes, expiredDateInDays, foodDonatorEmail, foodDonatorImage, foodDonatorName, foodImage, foodName, foodQuantity, pickupLocation, id,info,notes ,date,email  ,donation ,status }
-      
-
+     
+       
 
         axios.post(`http://localhost:5000/RizkShare/RequestedFood/`, requestedFood,{withCredentials:true}
           )
@@ -46,7 +55,7 @@ const SIngleFood = () => {
           })
           .catch(function (error) {
             console.log(error);
-            toast.error(error.message, {
+            if(!user){   toast.error(error.message, {
                 position: "top-right",
                 autoClose: 2100,
                 hideProgressBar: false,
@@ -55,7 +64,8 @@ const SIngleFood = () => {
                 draggable: true,
                 progress: undefined,
                 theme: "light",
-                })
+                })}
+         
           });
 
 
@@ -91,7 +101,7 @@ const SIngleFood = () => {
                                     <img className="object-cover h-20 rounded-full" src={foodDonatorImage} alt="Avatar" />
                                     <a href="#" className="mx-5 text-xl font-semibold " role="link">{foodDonatorName}</a>
                                 </div>
-                                <p className="  ">User Email: {foodDonatorEmail}</p>
+                                <p className="  ">Food Donator Email: {foodDonatorEmail}</p>
 
                             </div>
 
@@ -99,7 +109,9 @@ const SIngleFood = () => {
 
 
 
-                                <a href="#my_modal_8" className="btn w-fit bg-[#99627A] flex items-center justify-center mx-auto border-none text-white hover:text-[#99627A]">request</a>
+                               {
+                                user?<a href="#my_modal_8" className="btn w-fit bg-[#99627A] flex items-center justify-center mx-auto border-none text-white hover:text-[#99627A]">request</a>:<a href="#my_modal_8" className="btn w-fit bg-[#99627A] flex items-center justify-center mx-auto border-none text-white hover:text-[#99627A] "  disabled>request</a>
+                               } 
 
                                 <div className="modal w-full bg-[#99627A] " id="my_modal_8">
                                     <div className="modal-box  max-w-5xl mx-auto ">
@@ -151,6 +163,7 @@ const SIngleFood = () => {
                                                             
                                                             <a href="#" className="btn w-fit bg-[#C88EA7]   border-none text-white hover:text-[#99627A]">Close</a>
                                                         </div>
+                                                        
                                                         <div><button type="submit" className="btn mt-6 w-fit bg-[#C88EA7]  border-none text-white hover:text-[#99627A]">Submit</button></div></div>
                                                     </form>
 

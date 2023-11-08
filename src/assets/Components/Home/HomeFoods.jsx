@@ -15,7 +15,7 @@ const HomeFoods = () => {
         setLoadData(res.data);
       });
   }, []);
-console.log(data);
+
 
   const handleSort = () => {
     const sortedData = [...data];

@@ -20,7 +20,7 @@ const ManageFoods = () => {
             })
             .catch(err => { console.log(err); })
     }, [user?.email])
-
+  
 
 
   
@@ -44,51 +44,16 @@ const ManageFoods = () => {
              theme: "light",
              })
             // }
-             console.log(data);
+             
+             
              const remaining =data.filter(item =>item._id!==id)
              setData(remaining)
+             
         })
-        const donation =donation || '0'; 
+        
         
      }
-     const handleUpdate=id=>{
-        const{expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,status,donation} =data
-    
-        const newData  ={expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,    id,donation ,status}
-       
-        console.log(newData);
-          fetch(`http://localhost:5000/RizkShare/availableFoods/${id}`,{
-           method:'PATCH',
-           headers:{
-              'content-type':'application/json'
-           },
-         body:JSON.stringify(newData)
-           
-          })
-          .then(res=>res.json())
-          .then(data=>{
-              console.log(data);
-           if(data.modifiedCount >0){
-           toast.success('Data has been updated', {
-               position: "top-right",
-               autoClose: 2100,
-               hideProgressBar: false,
-               closeOnClick: true,
-               pauseOnHover: true,
-               draggable: true,
-               progress: undefined,
-               theme: "light",
-               })}
-  
-               const remaining =data.filter(item =>item._id!==id)
-               const updated =data.find(item =>item._id===id);
-               updated.status='confirm'
-               const newData =[updated ,...remaining]
-               setData(newData)
-          })
    
-          
-       }
    
 
 
@@ -132,8 +97,48 @@ const ManageFoods = () => {
 
         {
             data?.map(item=>{
-                const{expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,id,status,donation} =item
-            
+                const{expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,id,status,donation,} =item
+               
+                const handleUpdate=e=>{
+    
+                    e.preventDefault()
+                    const form =e.target
+                const donation =form.donate.value
+                    const newData  ={expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,    donation ,status}
+                   
+                    console.log(newData);
+                      fetch(`http://localhost:5000/RizkShare/availableFoods/${_id}`,{
+                       method:'PATCH',
+                       headers:{
+                          'content-type':'application/json'
+                       },
+                     body:JSON.stringify(newData)
+                       
+                      })
+                      .then(res=>res.json())
+                      .then(data=>{
+                          console.log(data);
+                       if(data.modifiedCount >0){
+                       toast.success('Data has been updated', {
+                           position: "top-right",
+                           autoClose: 2100,
+                           hideProgressBar: false,
+                           closeOnClick: true,
+                           pauseOnHover: true,
+                           draggable: true,
+                           progress: undefined,
+                           theme: "light",
+                           })}
+              
+                           const remaining =data.filter(item =>item._id!==id)
+                           const updated =data.find(item =>item._id===id);
+                           updated.status='confirm'
+                           const newData =[updated ,...remaining]
+                           setData(newData)
+                      })
+               
+                      
+                   }
 
 
                 return (<>
@@ -177,7 +182,7 @@ const ManageFoods = () => {
             
                             <div className="px-6 py-6 lg:px-8">
                                 <h3 className="mb-4 text-xl text-white  text-center font-medium">Want to Update the food? </h3>
-                                <form onSubmit={()=>handleUpdate(_id)}>
+                                <form onSubmit={handleUpdate}>
                                     <div className="grid grid-cols-2 gap-5 " >
                                         <div>
                                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Donator Email:</label>
