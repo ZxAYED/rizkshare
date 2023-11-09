@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
      
 
         axios
-          .post("https://zayed-rizkshare-server.vercel.app/rizkShare/jwt", loggedUser, {
+          .post("https://zayed-rizkshare-server.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => console.log("token response", res.data));
@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
       }
     });
     return () => unSubscribe();
-  }, [auth ]);
+  }, []);
 
   const authInfo = {
     user,
