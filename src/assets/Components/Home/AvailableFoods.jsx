@@ -9,7 +9,7 @@ const AvailableFoods = () => {
   const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
-    axios.get("https://zayed-rizkshare-server.vercel.app/RizkShare/availableFoods", { withCredentials: true })
+    axios.get("http://localhost:5000/RizkShare/availableFoods", { withCredentials: true })
       .then((res) => {
         setData(res.data);
         setLoadData(res.data);

@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../images/register.webp';
 import { useContext, useState } from 'react';
 import { AuthContext } from './AuthProvider';
@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
     const { createUser,googleSignIn} = useContext(AuthContext)
     const [error, setError] = useState(null)
-
+const navigate= useNavigate()
     const handleRegister = (e) => {
         e.preventDefault()
 
@@ -35,12 +35,12 @@ const Register = () => {
         theme: "dark",
         });
                 }
-
+                navigate('/')
             })
             .catch(function (err) {
                  setError(err);
                 if(err){ 
-                  toast.err(error.message, {
+                  toast.err(err?.message, {
                     position: "top-right",
                     autoClose: 3000,
                     hideProgressBar: false,
@@ -69,6 +69,7 @@ const Register = () => {
                         progress: undefined,
                         theme: "dark",
                         })}
+                        navigate('/')
                 })
             .catch(err => {
             

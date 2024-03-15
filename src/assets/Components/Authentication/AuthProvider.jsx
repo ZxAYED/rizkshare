@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
      
         setLoading(false);
         setUser(CurrentUser);
-      const loggedUser = { email: CurrentUser.email };
+      const loggedUser = { email: CurrentUser?.email };
       if (CurrentUser) {
        
         const foodDonatorName = CurrentUser.displayName;
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
      
 
         axios
-          .post("https://zayed-rizkshare-server.vercel.app/jwt", loggedUser, {
+          .post("http://localhost:5000/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => console.log("token response", res.data));

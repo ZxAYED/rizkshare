@@ -25,7 +25,7 @@ const AddAFood = () => {
        
 const foods ={additionalNotes,foodDonatorEmail,foodDonatorImage,foodDonatorName,expiredDateInDays,foodImage,foodName,foodQuantity,pickupLocation,status}
         // console.log(additionalNotes,foodDonatorEmail,foodDonatorImage,foodDonatorName,expiredDateInDays,foodImage,foodName,foodQuantity,pickupLocation,status)
-        axios.post('https://zayed-rizkshare-server.vercel.app/RizkShare/availableFoods',foods,{withCredentials:true})
+        axios.post('http://localhost:5000/RizkShare/availableFoods',foods,{withCredentials:true})
         .then(res=>{
             if(res){
             toast.success('Item Added SuccessFully!', {

@@ -12,7 +12,7 @@ const ManageFoods = () => {
     const { user } = useContext(AuthContext)
     const [data, setData] = useState(null)
     useEffect(() => {
-        axios.get(`https://zayed-rizkshare-server.vercel.app/RizkShare/ManageFoods/?email=${user?.email}`, { withCredentials: true })
+        axios.get(`http://localhost:5000/RizkShare/ManageFoods/?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                
 
@@ -24,16 +24,16 @@ const ManageFoods = () => {
 
 
   
-    const handleDelete=id=>{
+    const handleDelete=(id,foodName)=>{
 
-        fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/availableFoods/${id}`,{
+        fetch(`http://localhost:5000/RizkShare/availableFoods/${id}`,{
          method:'DELETE'
         })
         .then(res=>res.json())
         .then(items=>{
             console.log(items);
         //  if(datas.DeletedCount >0){
-         toast.success('Data has been Deleted', {
+         toast.success(`${foodName} has been Deleted`, {
              position: "top-right",
              autoClose: 2100,
              hideProgressBar: false,
@@ -99,15 +99,17 @@ const ManageFoods = () => {
             data?.map(item=>{
                 const{expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,id,status,donation,} =item
                
-                const handleUpdate=e=>{
+                const handleUpdate=(e)=>{
     
                     e.preventDefault()
                     const form =e.target
                 const donation =form.donate.value
-                    const newData  ={expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,    donation ,status}
-                   
-                    console.log(newData);
-                      fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/availableFoods/${_id}`,{
+                
+                 
+                
+             
+                       const newData  ={expiredDateInDays,foodImage,foodDonatorEmail,foodDonatorName,foodName,notes,date,pickupLocation,email,foodQuantity,_id,    donation ,status:'confirm'}
+                      fetch(`http://localhost:5000/RizkShare/availableFoods/${_id}`,{
                        method:'PATCH',
                        headers:{
                           'content-type':'application/json'
@@ -116,9 +118,9 @@ const ManageFoods = () => {
                        
                       })
                       .then(res=>res.json())
-                      .then(data=>{
-                          console.log(data);
-                       if(data.modifiedCount >0){
+                      .then(data2=>{
+                          console.log(data2);
+                       if(data2.modifiedCount >0){
                        toast.success('Data has been updated', {
                            position: "top-right",
                            autoClose: 2100,
@@ -130,11 +132,9 @@ const ManageFoods = () => {
                            theme: "light",
                            })}
               
-                           const remaining =data.filter(item =>item._id!==id)
-                           const updated =data.find(item =>item._id===id);
-                           updated.status='confirm'
-                           const newData =[updated ,...remaining]
-                           setData(newData)
+                           const remaining =data?.filter(item =>item._id!==id)
+                        
+                           setData(remaining)
                       })
                
                       
@@ -251,7 +251,7 @@ const ManageFoods = () => {
                   <form method="dialog">
                    <div className='flex gap-4 justify-center items-center'>
                     <button className="btn text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858]">Close</button>
-                    <button onClick={()=>handleDelete(_id)} className="btn text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858]">Delete</button></div>
+                    <button onClick={()=>handleDelete(_id,foodName)} className="btn text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858]">Delete</button></div>
                   </form>
                 </div>
               </div>

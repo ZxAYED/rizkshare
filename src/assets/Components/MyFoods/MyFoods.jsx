@@ -17,7 +17,7 @@ const MyFoods = () => {
 
    
     useEffect(() => {
-        axios.get(`https://zayed-rizkshare-server.vercel.app/RizkShare/RequestedFood/?email=${user?.email}`, { withCredentials: true })
+        axios.get(`http://localhost:5000/RizkShare/RequestedFood/?email=${user?.email}`, { withCredentials: true })
             .then(res => {
            
                 setData(res.data)
@@ -25,15 +25,15 @@ const MyFoods = () => {
             .catch(err => { console.log(err); })
     }, [user?.email])
 
-    const handleDelete=id=>{
+    const handleDelete=(id,foodName)=>{
 
-        fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/RequestedFood/${id}`,{
+        fetch(`http://localhost:5000/RizkShare/RequestedFood/${id}`,{
          method:'DELETE'
         })
         .then(res=>res.json())
         .then(datas=>{
-      
-         toast.success('Data has been Deleted', {
+      console.log(datas);
+         toast.success(`${foodName} has been Deleted`, {
              position: "top-right",
              autoClose: 2100,
              hideProgressBar: false,
@@ -135,7 +135,7 @@ const MyFoods = () => {
     <form method="dialog">
      <div className='flex gap-4 justify-center items-center'>
       <button className="btn text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858]">Close</button>
-      <button onClick={()=>handleDelete(_id)} className="btn text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858]">Delete</button></div>
+      <button onClick={()=>handleDelete(_id,foodName)} className="btn text-sm bg-[#99627A] border-none p-2 rounded-xl text-white hover:bg-[#813858]">Delete</button></div>
     </form>
   </div>
 </div>

@@ -39,7 +39,7 @@ const SIngleFood = () => {
      
        
 
-        axios.post(`https://zayed-rizkshare-server.vercel.app/RizkShare/RequestedFood/`, requestedFood,{withCredentials:true}
+        axios.post(`http://localhost:5000/RizkShare/RequestedFood/`, requestedFood,{withCredentials:true}
           )
           .then(function (response) {
             toast.success('Data has been added', {
