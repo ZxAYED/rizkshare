@@ -25,7 +25,7 @@ const Login = () => {
         SignIn(email, password)
             .then(response => {
              if (response) {
-                      toast.success('User Sign in SuccessFully!', {
+                      toast.success(`${user.email} in SuccessFully!`, {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
