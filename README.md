@@ -1,4 +1,4 @@
-ASSIGNMENT 0007
+
 
 Here are 5 features that my site has -
 User-Friendly Food Donation and Ordering: RizkShare provides an intuitive platform where users can easily donate surplus food or order free meals. The user-friendly design ensures that individuals can navigate the website effortlessly to contribute or request food.
@@ -11,5 +11,6 @@ Real-Time Server-Client Interaction: The website leverages real-time server-clie
 
 Gorgeous and Responsive Design: RizkShare stands out with its stunning design. The website's aesthetics not only make it visually appealing but also ensure it's responsive, providing an excellent user experience across various devices.
 
+Our food donation platform tackles the pressing issue of food insecurity by leveraging cutting-edge technologies such as JWT, Firebase authentication, efficient data handling with Tanstack Query, user-friendly form management with React Hook Form, and MongoDB integration. This innovative solution streamlines the process of connecting food donors with those in need, revolutionizing food assistance and addressing real-world hunger challenges with a transparent and accessible approach.
 
-MY WEBSITE LINK IS-****  --[https://zayed-rizkshare-server-le3m9cc2d-zayeds-projects.vercel.app/](https://654bc877f3d3841b6404e2a9--snazzy-lily-ee2934.netlify.app/)https://654bc877f3d3841b6404e2a9--snazzy-lily-ee2934.netlify.app/
+MY WEBSITE LINK IS-****  --https://zayed-rizkshare.netlify.app
