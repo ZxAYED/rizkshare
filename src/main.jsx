@@ -68,12 +68,12 @@ const router = createBrowserRouter([
       {
         path:'RizkShare/:id',
         element:<PrivateRoute><SIngleFood/></PrivateRoute>,
-        loader:({params})=> fetch(`http://localhost:5000/RizkShare/SingleFood/${params.id}`) 
+        loader:({params})=> fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/SingleFood/${params.id}`) 
     },
       {
         path:'RizkShare/ManageReq/:id',
         element:<ManageReq/>,
-        loader:({params})=> fetch(`http://localhost:5000/RizkShare/ManageFoods/${params.id}`) 
+        loader:({params})=> fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/ManageFoods/${params.id}`) 
     },
 
 

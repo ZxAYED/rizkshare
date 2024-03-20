@@ -15,7 +15,7 @@ const Home = () => {
       
             <div className="max-w-7xl mx-auto rounded-xl my-10"><WhyChooseRizkShare></WhyChooseRizkShare></div>
             <div className="max-w-7xl mx-auto rounded-xl my-10"><AboutUS></AboutUS></div>
-            
+            {/* https://zayed-rizkshare-server.vercel.app/ */}
          
         </div>
     );

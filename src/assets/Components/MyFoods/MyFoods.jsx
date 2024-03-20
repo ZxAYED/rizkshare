@@ -17,7 +17,7 @@ const MyFoods = () => {
 
    
     useEffect(() => {
-        axios.get(`http://localhost:5000/RizkShare/RequestedFood/?email=${user?.email}`, { withCredentials: true })
+        axios.get(`https://zayed-rizkshare-server.vercel.app/RizkShare/RequestedFood/?email=${user?.email}`, { withCredentials: true })
             .then(res => {
            
                 setData(res.data)
@@ -27,7 +27,7 @@ const MyFoods = () => {
 
     const handleDelete=(id,foodName)=>{
 
-        fetch(`http://localhost:5000/RizkShare/RequestedFood/${id}`,{
+        fetch(`https://zayed-rizkshare-server.vercel.app/RizkShare/RequestedFood/${id}`,{
          method:'DELETE'
         })
         .then(res=>res.json())
