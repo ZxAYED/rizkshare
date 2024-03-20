@@ -32,8 +32,8 @@ const HomeFoods = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-10 text-center">
-      <h1 className="text-3xl font-bold">Discover Our Featured Foods: Ascend by Abundance, Descend by Scarcity</h1>
-      <p className="py-5 font-semibold">
+      <h1 className="text-4xl font-bold">Discover Our Featured Foods: Ascend by Abundance, Descend by Scarcity</h1>
+      <p className="py-5 text-lg">
       Explore our exquisite selection of featured foods, thoughtfully curated for your culinary delight. Our collection boasts a tantalizing assortment of culinary creations, where the quantity of ingredients takes center stage. Ascend to an abundance of flavors as you savor dishes that celebrate generous portions and abundant ingredients, while also having the option to descend into the realm of culinary finesse, appreciating the delicate and scarce ingredients that create extraordinary masterpieces. Whether you're looking for bountiful feasts or elegant delicacies, our 'Featured Foods' section caters to all tastes, allowing you to choose your culinary adventure. Join us on a journey of taste and abundance, where quality meets quantity in perfect harmony.
       </p>
 

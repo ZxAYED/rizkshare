@@ -56,7 +56,7 @@ const NavBAr = () => {
                     <li>
                         <NavLink to='/RizkShare/News' className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "  " : ''}
-                        ><button className="text-lg"> Contact</button></NavLink></li>
+                        ><button className="text-lg"> Contact Us</button></NavLink></li>
 
     
 <li className="navbar-end">
