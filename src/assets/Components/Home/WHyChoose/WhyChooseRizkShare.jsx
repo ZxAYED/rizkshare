@@ -8,11 +8,11 @@ import img5 from '../../../images/key.gif'
 
 const WhyChooseRizkShare = () => {
     return (
-        <div>
+        <div className='mx-4 md:mx-auto l '>
             <h1 className="text-4xl text-center font-bold"> Why Choose RizkShare </h1>
             <p className="text-lg text-center py-4 ">Join RizkShare and become part of a movement dedicated to combating food waste and hunger in our communities.</p>
             <div className=" relative  ">
-      <section className="w-11/12 max-w-7xl mx-auto shadow-md rounded-xl border-t-2 text-[#144248]  p-6 text-center z-90 ">
+      <section className=" mx-auto shadow-md rounded-xl border-t-2 text-[#144248]  p-6 text-center z-90 ">
        
         <section className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6  mt-10">
           <aside
@@ -42,11 +42,11 @@ Technology-driven Solutions: Benefit from cutting-edge technologies like React, 
           <aside
             data-aos="fade-left"
             data-aos-duration="1000"
-            className="text-center flex flex-col justify-center items-center gap-4 "
+            className="text-center flex flex-col justify-center items-center  "
           >
             <Lottie
               data-aos="zoom-in"
-              className="h-28 col-span-2 row-span-2"
+              className="-mt-40 col-span-2 row-span-2"
               animationData={img2}
               loop={true}
             />
@@ -81,7 +81,7 @@ Community Empowerment: Join a community-driven platform that empowers individual
           <aside
             data-aos="fade-left"
             data-aos-duration="1000"
-            className="text-center flex flex-col justify-center items-center gap-4 "
+            className="text-center flex flex-col justify-center items-center -mt-20"
           >
           <Lottie
             className="max-h-[60vh] lg:col-span-2 lg:row-span-2"
